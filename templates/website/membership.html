@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Membership{% endblock %}
+{% block content %}
+<section class="page-hero membership-hero"><div class="container"><span class="eyebrow">Join the alliance</span><h1>Your perspective belongs here.</h1><p>Membership is open to eligible scholars, students, teachers, professors, educators and social activists.</p></div></section>
+
+<section class="section"><div class="container"><div class="row g-5"><div class="col-lg-5"><span class="eyebrow dark">Eligibility</span><h2>A community built around shared purpose.</h2><p>Applicants should be interested in advancing GASSAC’s objectives and meet the membership criteria.</p></div><div class="col-lg-7"><ul class="check-list"><li><i class="bi bi-check2"></i><span>Resident in any part of India or abroad</span></li><li><i class="bi bi-check2"></i><span>At least 16 years of age</span></li><li><i class="bi bi-check2"></i><span>Interested in the objectives of the organization</span></li><li><i class="bi bi-check2"></i><span>Committed to placing the society’s interests first</span></li></ul></div></div></div></section>
+
+<section class="section soft-bg"><div class="container">
+  <div class="text-center narrow mb-5"><span class="eyebrow dark">Membership fees</span><h2>Choose how you participate</h2><p>Select a membership category and its frequency to view the applicable contribution.</p></div>
+  <div class="membership-picker">
+    <div class="row g-4 align-items-end">
+      <div class="col-md-6"><label class="form-label" for="memberCategory">Select category</label><select class="form-select" id="memberCategory"><option value="">Choose a category</option><option value="institutional">Institutional member</option><option value="founder">Founder member</option><option value="life">Life member</option><option value="annual">Annual member</option><option value="student">Student member</option><option value="donor">Donor member</option><option value="enthusiast">Literary &amp; social enthusiast</option></select></div>
+      <div class="col-md-6"><label class="form-label" for="memberFrequency">Select frequency</label><select class="form-select" id="memberFrequency" disabled><option value="">Choose frequency</option></select></div>
+      <div class="col-12 mt-4"><div class="contribution-result" id="contributionResult" aria-live="polite"><div><i class="bi bi-wallet2 fs-2"></i><p class="mb-0 mt-2">Your contribution will appear here.</p></div></div></div>
+    </div>
+    <p class="small text-secondary mt-3 mb-0">Trustee and honorary membership categories are also recognized. Admission is subject to Executive Committee approval.</p>
+  </div>
+</div></section>
+
+<section class="cta"><div class="container text-center"><h2>Ready to become a member?</h2><p>Contact the registered office to begin your membership enquiry.</p><a class="btn btn-primary btn-lg" href="{% url 'website:contact' %}">Enquire now</a></div></section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const memberships = {
+    institutional: { frequency: 'One-time', fee: '₹11,000', name: 'Institutional member' },
+    founder: { frequency: 'One-time', fee: '₹10,000', name: 'Founder member' },
+    life: { frequency: 'One-time', fee: '₹5,000', name: 'Life member' },
+    annual: { frequency: 'Per year', fee: '₹1,000', name: 'Annual member' },
+    student: { frequency: 'Per year', fee: '₹500', name: 'Student member' },
+    donor: { frequency: 'One-time', fee: '₹5,000', name: 'Donor member' },
+    enthusiast: { frequency: 'Per year', fee: '₹200', name: 'Literary & social enthusiast' }
+  };
+  const category = document.getElementById('memberCategory');
+  const frequency = document.getElementById('memberFrequency');
+  const result = document.getElementById('contributionResult');
+  const emptyResult = '<div><i class="bi bi-wallet2 fs-2"></i><p class="mb-0 mt-2">Your contribution will appear here.</p></div>';
+  category.addEventListener('change', function () {
+    const plan = memberships[this.value];
+    frequency.innerHTML = '<option value="">Choose frequency</option>';
+    result.innerHTML = emptyResult;
+    frequency.disabled = !plan;
+    if (plan) frequency.insertAdjacentHTML('beforeend', `<option value="${plan.frequency}">${plan.frequency}</option>`);
+  });
+  frequency.addEventListener('change', function () {
+    const plan = memberships[category.value];
+    result.innerHTML = plan && this.value ? `<div><span class="small text-uppercase">${plan.name}</span><strong>${plan.fee}</strong><span>${plan.frequency}</span></div>` : emptyResult;
+  });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Global Academia of Scholarly Skill Alliance and Collaboration — advancing education, research and global cooperation.">
+  <title>{% block title %}GASSAC{% endblock %} | Global Academia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    html, body { max-width: 100%; overflow-x: clip; }
+    .navbar { min-height: 86px; position: sticky !important; top: 0; z-index: 1030; }
+    .brand-name { line-height: 1.05; }
+    .brand-name > strong { display: block; }
+    .navbar-brand .brand-name small {
+      margin-top: .22rem;
+      font-size: .55rem;
+      line-height: 1.25;
+      letter-spacing: .055em;
+      color: #334a5d;
+      font-weight: 700;
+    }
+    .footer-credit-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; }
+    .footer-credit-links { display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: .25rem; }
+    .footer-credit-links a { display: block; margin: 0; }
+    .activity-card { transition: transform .25s ease, box-shadow .25s ease; }
+    .activity-card:hover { transform: translateY(-6px); box-shadow: 0 18px 45px rgba(12,39,64,.12); }
+    .welcome-panel { position: relative; overflow: hidden; padding: clamp(2rem,5vw,4rem); border-radius: 1.5rem; background: linear-gradient(135deg,#f0f7ff,#fff7f1); border: 1px solid #dfeaf2; }
+    .welcome-panel::after { content: "G"; position: absolute; right: -1rem; bottom: -5rem; font: 700 16rem/1 'Libre Baskerville',serif; color: rgba(33,92,170,.05); }
+    .welcome-point { display: flex; gap: .8rem; align-items: center; font-weight: 700; color: var(--navy); }
+    .welcome-point i { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #fff; color: var(--blue); box-shadow: 0 5px 18px rgba(12,39,64,.08); }
+    .purpose-card { height: 100%; padding: clamp(2rem,4vw,3rem); border-radius: 1.4rem; background: #fff; border: 1px solid #e0e8ed; box-shadow: 0 15px 45px rgba(12,39,64,.07); }
+    .purpose-card.mission { background: var(--navy); color: #dce7ef; }
+    .purpose-card.mission h2 { color: #fff; }
+    .mission-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
+    .mission-item { display: flex; gap: .65rem; align-items: flex-start; padding: .8rem; border-radius: .7rem; background: rgba(255,255,255,.08); }
+    .mission-item i { color: #82b6eb; }
+    .membership-picker { max-width: 880px; margin: auto; padding: clamp(1.5rem,4vw,3rem); background: #fff; border-radius: 1.4rem; box-shadow: 0 18px 55px rgba(12,39,64,.1); }
+    .contribution-result { min-height: 155px; display: grid; place-items: center; text-align: center; padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg,var(--navy),#1b5681); color: #fff; }
+    .contribution-result strong { display: block; font: 700 clamp(2rem,5vw,3.5rem)/1.1 'Libre Baskerville',serif; }
+    .event-card { height: 100%; overflow: hidden; border: 1px solid #e0e7eb; border-radius: 1.2rem; background: #fff; transition: transform .25s ease,box-shadow .25s ease; }
+    .event-card:hover { transform: translateY(-6px); box-shadow: 0 18px 45px rgba(12,39,64,.12); }
+    .event-visual { min-height: 170px; display: flex; justify-content: space-between; align-items: flex-start; padding: 1.5rem; background: linear-gradient(135deg,#dcefff,#f4f9ff); }
+    .event-visual i { align-self: center; font-size: 4rem; color: var(--blue); }
+    .event-card:nth-child(2n) .event-visual { background: linear-gradient(135deg,#ffe7e1,#fff5f1); }
+    .event-content { padding: 1.5rem; }
+    .event-content h2 { font-family: 'DM Sans'; font-size: 1.35rem; letter-spacing: 0; }
+    .event-meta { display: flex; flex-wrap: wrap; gap: .5rem 1rem; color: var(--muted); font-size: .85rem; }
+    @media (max-width: 575.98px) {
+      .navbar-brand { max-width: calc(100vw - 82px); gap: .45rem !important; }
+      .navbar-brand .brand-mark { width: 38px; height: 38px; flex: 0 0 38px; }
+      .navbar-brand .brand-name small { font-size: .46rem; letter-spacing: .025em; }
+      .footer-credit-row { flex-direction: column; align-items: flex-start; gap: .75rem; }
+      .footer-credit-links { align-items: flex-start; text-align: left; }
+      .mission-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'website:home' %}">
+        <span class="brand-mark">G</span><span class="brand-name"><strong>GASSAC</strong><small>Global Academia of Scholarly Skill<br>Alliance and Collaboration</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'website:home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'website:about' %}">About</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'team' %}active{% endif %}" href="{% url 'website:team' %}">Our Team</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'activities' %}active{% endif %}" href="{% url 'website:activities' %}">Activities</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'membership' %}active{% endif %}" href="{% url 'website:membership' %}">Membership</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-primary px-3" href="{% url 'website:contact' %}">Contact us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main">{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div class="container py-5"><div class="row g-4 align-items-start">
+      <div class="col-lg-5"><div class="d-flex align-items-center gap-2 mb-3"><span class="brand-mark light">G</span><strong class="fs-4">GASSAC</strong></div><p class="footer-copy">Connecting educators, researchers, scholars and students for academic excellence and human welfare.</p></div>
+      <div class="col-6 col-lg-2"><h2 class="footer-title text-secondary">Explore</h2><a href="{% url 'website:about' %}">About us</a><a href="{% url 'website:activities' %}">Activities</a><a href="{% url 'website:team' %}">Our team</a></div>
+      <div class="col-6 col-lg-2"><h2 class="footer-title text-secondary">Join</h2><a href="{% url 'website:membership' %}">Membership</a><a href="{% url 'website:contact' %}">Contact</a></div>
+      <div class="col-lg-3"><h2 class="footer-title text-secondary">Registered office</h2><p>Plot No. 23, Mukund Nagar,<br>Sakri, Maharashtra, India</p></div>
+    </div><hr><div class="footer-credit-row small"><span>© {% now "Y" %} GASSAC. All rights reserved.</span><div class="footer-credit-links"><a href="https://christinfotech.org/" target="_blank" rel="noopener">CHRIST Infotech - Software Research and Development Center</a></div></div></div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

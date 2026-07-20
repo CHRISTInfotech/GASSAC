@@ -1,0 +1,31 @@
+{% extends 'base.html' %}{% block title %}Our Team{% endblock %}
+{% block content %}
+<section class="page-hero team-hero">
+    <div class="container"><span class="eyebrow">Our leadership</span>
+        <h1>People United By A Belief In Education.</h1>
+        <p>Meet the office bearers and executive members guiding GASSAC.</p>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="row g-4">
+            {% for name, role in team %}<div class="col-sm-6 col-lg-4">
+                <article class="person-card">
+                    <div class="avatar">{{ name|slice:"0:1" }}</div>
+                    <div>
+                        <h2>{{ name }}</h2>
+                        <p>{{ role }}</p>
+                    </div>
+                </article>
+            </div>{% endfor %}
+        </div>
+    </div>
+</section>
+<section class="cta">
+    <div class="container text-center">
+        <h2>Interested in working with us?</h2>
+        <p>Join a growing network of people committed to academic and social progress.</p><a
+            class="btn btn-primary btn-lg" href="{% url 'website:membership' %}">Explore membership</a>
+    </div>
+</section>
+{% endblock %}

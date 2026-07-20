@@ -1,0 +1,51 @@
+{% extends 'base.html' %}{% block title %}Contact Us{% endblock %}
+{% block content %}
+<section class="page-hero contact-hero">
+    <div class="container"><span class="eyebrow">Contact us</span>
+        <h1>Let’s Start A Meaningful Conversation.</h1>
+        <p>Reach out about membership, partnerships, programs or academic collaboration.</p>
+    </div>
+</section>
+<section class="section">
+    <div class="container">{% if messages %}{% for message in messages %}<div class="alert alert-success mb-4"
+            role="alert">{{ message }}</div>{% endfor %}{% endif %}<div class="row g-5">
+            <div class="col-lg-5"><span class="eyebrow dark">Registered office</span>
+                <h2>Come and Connect.</h2>
+                <div class="contact-detail"><i class="bi bi-geo-alt"></i>
+                    <div>
+                        <h3>Address</h3>
+                        <p>Plot No. 23, Mukund Nagar,<br>Sakri, Maharashtra, India</p>
+                    </div>
+                </div>
+                <div class="contact-detail"><i class="bi bi-globe2"></i>
+                    <div>
+                        <h3>Area of work</h3>
+                        <p>Across India and abroad</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <form method="post" class="contact-form">{% csrf_token %}<div class="row g-3">
+                        <div class="col-md-6"><label class="form-label" for="name">Your name</label><input
+                                class="form-control" id="name" name="name" required></div>
+                        <div class="col-md-6"><label class="form-label" for="email">Email address</label><input
+                                class="form-control" type="email" id="email" name="email" required></div>
+                        <div class="col-12"><label class="form-label" for="subject">I’m interested in</label><select
+                                class="form-select" id="subject" name="subject">
+                                <option>Membership</option>
+                                <option>Institutional partnership</option>
+                                <option>Events and activities</option>
+                                <option>Research collaboration</option>
+                                <option>Other enquiry</option>
+                            </select></div>
+                        <div class="col-12"><label class="form-label" for="message">Message</label><textarea
+                                class="form-control" id="message" name="message" rows="5" required></textarea></div>
+                        <div class="col-12"><button class="btn btn-primary btn-lg" type="submit">Send enquiry <i
+                                    class="bi bi-arrow-right"></i></button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
