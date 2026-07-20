@@ -631,6 +631,215 @@ h3 {
     margin: 2.5rem 0 1.5rem
 }
 
+html,
+body {
+    max-width: 100%;
+    overflow-x: clip
+}
+
+.navbar {
+    min-height: 86px;
+    position: sticky !important;
+    top: 0;
+    z-index: 1030
+}
+
+.brand-name {
+    line-height: 1.05
+}
+
+.brand-name>strong {
+    display: block
+}
+
+.navbar-brand .brand-name small {
+    margin-top: .22rem;
+    font-size: .55rem;
+    line-height: 1.25;
+    letter-spacing: .055em;
+    color: #334a5d;
+    font-weight: 700
+}
+
+.footer-credit-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem
+}
+
+.footer-credit-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: .25rem
+}
+
+.footer-credit-links a {
+    display: block;
+    margin: 0
+}
+
+.activity-card {
+    transition: transform .25s ease, box-shadow .25s ease
+}
+
+.activity-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(12, 39, 64, .12)
+}
+
+.welcome-panel {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(2rem, 5vw, 4rem);
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, #f0f7ff, #fff7f1);
+    border: 1px solid #dfeaf2
+}
+
+.welcome-panel::after {
+    content: "G";
+    position: absolute;
+    right: -1rem;
+    bottom: -5rem;
+    font: 700 16rem/1 'Libre Baskerville', serif;
+    color: rgba(33, 92, 170, .05)
+}
+
+.welcome-point {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    font-weight: 700;
+    color: var(--navy)
+}
+
+.welcome-point i {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--blue);
+    box-shadow: 0 5px 18px rgba(12, 39, 64, .08)
+}
+
+.purpose-card {
+    height: 100%;
+    padding: clamp(2rem, 4vw, 3rem);
+    border-radius: 1.4rem;
+    background: #fff;
+    border: 1px solid #e0e8ed;
+    box-shadow: 0 15px 45px rgba(12, 39, 64, .07)
+}
+
+.purpose-card.mission {
+    background: var(--navy);
+    color: #dce7ef
+}
+
+.purpose-card.mission h2 {
+    color: #fff
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem
+}
+
+.mission-item {
+    display: flex;
+    gap: .65rem;
+    align-items: flex-start;
+    padding: .8rem;
+    border-radius: .7rem;
+    background: rgba(255, 255, 255, .08)
+}
+
+.mission-item i {
+    color: #82b6eb
+}
+
+.membership-picker {
+    max-width: 880px;
+    margin: auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background: #fff;
+    border-radius: 1.4rem;
+    box-shadow: 0 18px 55px rgba(12, 39, 64, .1)
+}
+
+.contribution-result {
+    min-height: 155px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, var(--navy), #1b5681);
+    color: #fff
+}
+
+.contribution-result strong {
+    display: block;
+    font: 700 clamp(2rem, 5vw, 3.5rem)/1.1 'Libre Baskerville', serif
+}
+
+.event-card {
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #e0e7eb;
+    border-radius: 1.2rem;
+    background: #fff;
+    transition: transform .25s ease, box-shadow .25s ease
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(12, 39, 64, .12)
+}
+
+.event-visual {
+    min-height: 170px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #dcefff, #f4f9ff)
+}
+
+.event-visual i {
+    align-self: center;
+    font-size: 4rem;
+    color: var(--blue)
+}
+
+.event-card:nth-child(2n) .event-visual {
+    background: linear-gradient(135deg, #ffe7e1, #fff5f1)
+}
+
+.event-content {
+    padding: 1.5rem
+}
+
+.event-content h2 {
+    font-family: 'DM Sans';
+    font-size: 1.35rem;
+    letter-spacing: 0
+}
+
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+    color: var(--muted);
+    font-size: .85rem
+}
+
 @media(max-width:991.98px) {
     .navbar-collapse {
         padding: 1rem 0
@@ -683,5 +892,36 @@ h3 {
     .fee-table th,
     .fee-table td {
         padding: .85rem .7rem
+    }
+
+    .navbar-brand {
+        max-width: calc(100vw - 82px);
+        gap: .45rem !important
+    }
+
+    .navbar-brand .brand-mark {
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px
+    }
+
+    .navbar-brand .brand-name small {
+        font-size: .46rem;
+        letter-spacing: .025em
+    }
+
+    .footer-credit-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .75rem
+    }
+
+    .footer-credit-links {
+        align-items: flex-start;
+        text-align: left
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr
     }
 }
