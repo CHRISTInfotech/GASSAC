@@ -9,13 +9,25 @@ const MEMBERSHIPS = {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  const tableBody = document.getElementById('feeTableBody');
-  if (!tableBody) return;
-  tableBody.innerHTML = Object.values(MEMBERSHIPS).map(plan => `
-    <tr>
-      <td>${plan.name}</td>
-      <td class="text-center">${plan.frequency}</td>
-      <td class="text-end fw-bold">${plan.fee}</td>
-    </tr>
-  `).join('');
+  const category = document.getElementById('memberCategory');
+  const frequency = document.getElementById('memberFrequency');
+  const result = document.getElementById('contributionResult');
+  if (!category || !frequency || !result) return;
+
+  const emptyResult = '<div><i class="bi bi-wallet2 fs-2"></i><p class="mb-0 mt-2">Your contribution will appear here.</p></div>';
+
+  category.addEventListener('change', function () {
+    const plan = MEMBERSHIPS[this.value];
+    frequency.innerHTML = '<option value="">Choose frequency</option>';
+    frequency.disabled = !plan;
+    result.innerHTML = emptyResult;
+    if (plan) frequency.insertAdjacentHTML('beforeend', `<option value="${plan.frequency}">${plan.frequency}</option>`);
+  });
+
+  frequency.addEventListener('change', function () {
+    const plan = MEMBERSHIPS[category.value];
+    result.innerHTML = plan && this.value
+      ? `<div><span class="small text-uppercase">${plan.name}</span><strong>${plan.fee}</strong><span>${plan.frequency}</span></div>`
+      : emptyResult;
+  });
 });
