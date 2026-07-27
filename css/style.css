@@ -825,6 +825,11 @@ body {
     box-shadow: 0 15px 45px rgba(12, 39, 64, .07)
 }
 
+.purpose-card:not(.mission) {
+    background: #f4f7f8;
+    box-shadow: none
+}
+
 .purpose-card.mission {
     background: var(--blue);
     color: #fff
@@ -888,6 +893,40 @@ body {
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
     line-height: 1
+}
+
+.membership-note {
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border-left: 5px solid var(--blue);
+    border-radius: 0 1rem 1rem 0;
+    background: #fff;
+    box-shadow: 0 12px 35px rgba(12, 39, 64, .08)
+}
+
+.membership-note .note-label {
+    display: inline-block;
+    margin-bottom: .8rem;
+    padding: .3rem .75rem;
+    border-radius: 50rem;
+    color: #fff;
+    background: var(--blue);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase
+}
+
+.membership-note h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem)
+}
+
+.membership-note ol {
+    margin-bottom: 0;
+    padding-left: 1.25rem
+}
+
+.membership-note li {
+    padding: .4rem 0 .4rem .35rem
 }
 
 .activity-image-card {
