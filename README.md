@@ -2,4 +2,14 @@
 
 A responsive static website (HTML, CSS, JS) for the Global Academia of Scholarly Skill Alliance and Collaboration (GASSAC).
 
-Open `index.html` directly in a browser, or serve the repo root with any static file server. Deployed automatically to GitHub Pages via `.github/workflows/static.yml` on every push to `main`.
+## Run locally
+
+From `C:\Infotech\GASSAC`, run:
+
+```powershell
+python -m http.server 8080
+```
+
+Keep that terminal open, then visit `http://localhost:8080/`.
+
+The site is also deployed automatically to GitHub Pages via `.github/workflows/static.yml` on every push to `main`.

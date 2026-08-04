@@ -1,33 +1,51 @@
 const TEAM = [
-  ['Dr. Tejaswini Patil', 'President'],
-  ['Prof. Jagruti Patel', 'Vice President'],
-  ['Dr. Ajabrao Ingle', 'Secretary'],
-  ['Dr. Basavaraj Yallur', 'Joint Secretary'],
-  ['Dr. Jyoti Wakode', 'Treasurer'],
-  ['Dr. Sunil Shinde', 'Deputy Treasurer'],
-  ['Dr. Diksha Kadam', 'Coordinator'],
-  ['Dr. Sachin Chavan', 'Executive Member'],
-  ['Dr. Savita Patil', 'Executive Member'],
-  ['Dr. Gajanan Tayde', 'Executive Member'],
-  ['Dr. Vibhuti Khedekar', 'Executive Member'],
-  ['Dr. Chumki Biswas', 'Executive Member'],
-  ['Dr. Ram Gaikwad', 'Executive Member'],
-  ['Prof. Kalpesh Patkar', 'Executive Member'],
-  ['Dr. Navodita Bhatt', 'Executive Member']
+  { name: 'Dr. Tejaswini Patil', role: 'President', image: '', email: '', phone: '' },
+  { name: 'Prof. Jagruti Patel', role: 'Vice President', image: '', email: '', phone: '' },
+  { name: 'Dr. Ajabrao Ingle', role: 'Secretary', image: '', email: 'gassac26@gmail.com', phone: '8408963675' },
+  { name: 'Dr. Basavaraj Yallur', role: 'Joint Secretary', image: 'Prof.Basavaraj Yallur.jpeg', email: 'basavarajyallur7@gmail.com', phone: '9481742882' },
+  { name: 'Dr. Jyoti Wakode', role: 'Treasurer', image: '', email: '', phone: '' },
+  { name: 'Dr. Sunil Shinde', role: 'Deputy Treasurer', image: '', email: '', phone: '' },
+  { name: 'Dr. Diksha Kadam', role: 'Coordinator', image: '', email: 'deeks10@gmail.com', phone: '8149430876' },
+  { name: 'Dr. Sachin Chavan', role: 'Executive Member', image: '', email: '', phone: '' },
+  { name: 'Dr. Savita Patil', role: 'Executive Member', image: '', email: '', phone: '' },
+  { name: 'Dr. Gajanan Tayde', role: 'Executive Member', image: '', email: '', phone: '' },
+  { name: 'Dr. Vibhuti Khedekar', role: 'Executive Member', image: '', email: '', phone: '' },
+  { name: 'Dr. Chumki Biswas', role: 'Executive Member', image: '', email: '', phone: '' },
+  { name: 'Dr. Ram Gaikwad', role: 'Executive Member', image: '', email: '', phone: '' },
+  { name: 'Prof. Kalpesh Patkar', role: 'Executive Member', image: '', email: '', phone: '' },
+  { name: 'Dr. Navodita Bhatt', role: 'Executive Member', image: '', email: '', phone: '' }
 ];
+
+const TEAM_IMAGE_PATH = 'assets/images/team/';
+const FALLBACK_IMAGE = 'emptyuserimg.jpeg';
+
+function contactLink(type, value, name) {
+  const icon = type === 'email' ? 'bi-envelope' : 'bi-telephone';
+  const label = type === 'email' ? `Email ${name}` : `Call ${name}`;
+  if (!value) {
+    return `<span class="team-contact-link unavailable" aria-label="${type} "><i class="bi ${icon}"></i><span></span></span>`;
+  }
+  const href = type === 'email' ? `mailto:${value}` : `tel:${value.replace(/\s/g, '')}`;
+  return `<a class="team-contact-link" href="${href}" aria-label="${label}" title="${value}"><i class="bi ${icon}"></i><span>${value}</span></a>`;
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   const grid = document.getElementById('teamGrid');
   if (!grid) return;
-  grid.innerHTML = TEAM.map(([name, role]) => `
-    <div class="col-sm-6 col-lg-4">
-      <article class="person-card">
-        <div class="avatar">${name.charAt(0)}</div>
-        <div>
-          <h2>${name}</h2>
-          <p>${role}</p>
-        </div>
-      </article>
-    </div>
-  `).join('');
+
+  grid.innerHTML = TEAM.map(member => {
+    const image = member.image || FALLBACK_IMAGE;
+    return `
+      <div class="team-column">
+        <article class="person-card">
+          <img class="team-photo" src="${TEAM_IMAGE_PATH}${image}" alt="Portrait of ${member.name}" onerror="this.onerror=null;this.src='${TEAM_IMAGE_PATH}${FALLBACK_IMAGE}'">
+          <h2>${member.name}</h2>
+          <p>${member.role}</p>
+          <div class="team-contact-links">
+            ${contactLink('email', member.email, member.name)}
+            ${contactLink('phone', member.phone, member.name)}
+          </div>
+        </article>
+      </div>`;
+  }).join('');
 });
