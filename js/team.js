@@ -1,11 +1,11 @@
 const TEAM = [
   { name: 'Dr. Tejaswini Patil', role: 'President', image: '', email: '', phone: '' },
   { name: 'Prof. Jagruti Patel', role: 'Vice President', image: '', email: '', phone: '' },
-  { name: 'Dr. Ajabrao Ingle', role: 'Secretary', image: '', email: 'gassac26@gmail.com', phone: '8408963675' },
+  { name: 'Dr. Ajabrao Ingle', role: 'Secretary', image: 'Dr Ajabrao Ingle.jpg', email: 'gassac26@gmail.com', phone: '8408963675' },
   { name: 'Dr. Basavaraj Yallur', role: 'Joint Secretary', image: 'Prof.Basavaraj Yallur.jpeg', email: 'basavarajyallur7@gmail.com', phone: '9481742882' },
   { name: 'Dr. Jyoti Wakode', role: 'Treasurer', image: '', email: '', phone: '' },
   { name: 'Dr. Sunil Shinde', role: 'Deputy Treasurer', image: '', email: '', phone: '' },
-  { name: 'Dr. Diksha Kadam', role: 'Coordinator', image: '', email: 'deeks10@gmail.com', phone: '8149430876' },
+  { name: 'Dr. Diksha Kadam', role: 'Coordinator', image: 'Dr Diksha Kadam.jpg', email: 'deeks10@gmail.com', phone: '8149430876' },
   { name: 'Dr. Sachin Chavan', role: 'Executive Member', image: '', email: '', phone: '' },
   { name: 'Dr. Savita Patil', role: 'Executive Member', image: '', email: '', phone: '' },
   { name: 'Dr. Gajanan Tayde', role: 'Executive Member', image: '', email: '', phone: '' },
