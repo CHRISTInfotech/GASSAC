@@ -58,10 +58,23 @@ h3 {
 
 .navbar-brand small {
     display: block;
-    font-size: .62rem;
-    letter-spacing: .14em;
+    font-size: .68rem;
+    letter-spacing: .04em;
+    line-height: 1.25;
     text-transform: uppercase;
-    color: var(--muted)
+    color: var(--muted);
+    font-weight: 600
+}
+
+.navbar-brand .h6,
+.navbar-brand .brand-full-name {
+    margin: .25rem 0 0;
+    color: var(--muted);
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    line-height: 1.25;
+    text-transform: uppercase
 }
 
 .brand-mark {
@@ -82,9 +95,9 @@ h3 {
 }
 
 .brand-logo {
-    width: 54px;
-    height: 54px;
-    flex: 0 0 54px;
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
     border-radius: 50%;
     object-fit: contain
 }
@@ -98,6 +111,11 @@ h3 {
     font-weight: 600;
     color: #43515c !important;
     padding: .65rem .8rem !important
+}
+
+.navbar .nav-item:last-child,
+.navbar .nav-item:last-child .btn {
+    flex-shrink: 0
 }
 
 .nav-link.active,
@@ -801,16 +819,106 @@ body {
 }
 
 .brand-name>strong {
-    display: block
+    display: block;
+    color: var(--navy);
+    font-size: 1.35rem;
+    line-height: 1.1
+}
+
+.footer-brand-name {
+    line-height: 1.25
+}
+
+.footer-brand-name strong {
+    display: block;
+    color: #fff;
+    font-size: 1.35rem
+}
+
+.footer-brand-name small {
+    display: block;
+    max-width: 320px;
+    margin-top: .25rem;
+    color: #cbd7df;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase
+}
+
+.placeholder-panel {
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid #dfe7ec;
+    border-radius: 1.25rem;
+    background: var(--soft);
+    text-align: center
 }
 
 .navbar-brand .brand-name small {
     margin-top: .22rem;
-    font-size: .55rem;
+    font-size: .68rem;
     line-height: 1.25;
-    letter-spacing: .055em;
+    letter-spacing: .04em;
     color: #334a5d;
-    font-weight: 700
+    font-weight: 600
+}
+
+@media (min-width: 1200px) {
+    .navbar>.container {
+        max-width: none;
+        padding-inline: clamp(1rem, 2vw, 2rem)
+    }
+
+    .navbar-brand {
+        flex-shrink: 0;
+        margin-right: clamp(.75rem, 1.5vw, 1.5rem)
+    }
+
+    .navbar-nav {
+        flex-wrap: nowrap;
+        white-space: nowrap
+    }
+
+    .navbar .nav-link {
+        padding-inline: clamp(.28rem, .55vw, .55rem) !important;
+        font-size: clamp(.72rem, .76vw, .86rem)
+    }
+
+    .navbar .nav-item:last-child {
+        margin-left: .5rem !important
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-expand-lg .navbar-toggler {
+        display: block
+    }
+
+    .navbar-expand-lg .navbar-collapse {
+        display: none !important;
+        flex-basis: 100%
+    }
+
+    .navbar-expand-lg .navbar-collapse.show {
+        display: block !important
+    }
+
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start !important;
+        padding: 1rem 0
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .navbar .nav-item:last-child {
+        align-self: flex-start
+    }
+
+    .navbar .nav-item:last-child .btn {
+        display: inline-block;
+        width: auto
+    }
 }
 
 .footer-credit-row {
@@ -1127,13 +1235,15 @@ body {
     }
 
     .navbar-brand .brand-logo {
-        width: 42px;
-        height: 42px;
-        flex-basis: 42px
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px
     }
 
-    .navbar-brand .brand-name small {
-        font-size: .46rem;
+    .navbar-brand .brand-name small,
+    .navbar-brand .h6,
+    .navbar-brand .brand-full-name {
+        font-size: .56rem;
         letter-spacing: .025em
     }
 

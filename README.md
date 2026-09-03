@@ -1,6 +1,6 @@
 # GASSAC Website
 
-A responsive static website (HTML, CSS, JS) for the Global Academia of Scholarly Skill Alliance and Collaboration (GASSAC).
+A responsive static website (HTML, CSS, JS) for the Global Academia of Scholarly Skill Alliances and Collaboration (GASSAC).
 
 ## Run locally
 

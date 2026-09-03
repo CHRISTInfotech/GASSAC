@@ -12,8 +12,9 @@ const TEAM = [
   { name: 'Dr. Vibhuti Khedekar', role: 'Executive Member', image: 'Dr. Vibhuti Executive Member.jpeg', email: '', phone: '' },
   { name: 'Dr. Chumki Biswas', role: 'Executive Member', image: 'Dr.Chumki Biswas Executive Member.jpeg', email: '', phone: '' },
   { name: 'Dr. Ram Gaikwad', role: 'Executive Member', image: 'Dr. Ram Gaikwad Executive Member.jpeg', email: '', phone: '' },
-  { name: 'Prof. Kalpesh Patkar', role: 'Executive Member', image: 'Prof. Kalpesh Patkar Executive Member.jpeg', email: '', phone: '' },
-  { name: 'Dr. Navodita Bhatt', role: 'Executive Member', image: 'Dr. Navodita Bhatt Executive Member.jpeg', email: '', phone: '' }
+  { name: 'Dr. Kalpesh Patkar', role: 'Executive Member', image: 'Prof. Kalpesh Patkar Executive Member.jpeg', email: '', phone: '' },
+  { name: 'Dr. Navodita Bhatt', role: 'Executive Member', image: 'Dr. Navodita Bhatt Executive Member.jpeg', email: '', phone: '' },
+  { name: 'Ms. Noirrita Priyadarshini', role: 'Executive Member', image: 'Noirrita Priyadarshini.jpeg', email: '', phone: '' }
 ];
 
 const TEAM_IMAGE_PATH = 'assets/images/team/';
